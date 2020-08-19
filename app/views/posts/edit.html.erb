@@ -1,9 +1,9 @@
-<h1>New post</h1>
+<h1>Update post</h1>
 
 <% if @post.errors.any? %>
   <h2>We have <%= pluralize(@post.errors.count, 'error') %> on the request</h2>
 
-  <ul>
+  <ul></ul>
   <% @post.errors.full_messages.each do |error| %>
     <li><%= error %></li>
   <% end %> 
@@ -11,7 +11,7 @@
 <% end %>
 
 
-<%= form_with scope: :post, url: posts_path, local: true do |form| %>
+<%= form_with(model: @post, local: true) do |form| %>
   <p>
     <%= form.label :title %>
     <br>

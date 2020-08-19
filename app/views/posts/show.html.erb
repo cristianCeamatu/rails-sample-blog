@@ -1,6 +1,8 @@
 <nav>
   <ul>
     <li><%= link_to  "All posts", posts_path %></li>
+    <li><%= link_to  "Edit", edit_post_path(@post) %></li>
+    <li><%= link_to  "Delete", post_path(@post), method: :delete, data: { confirm: 'Are you sure?' } %></li>
   </ul>
 </nav>
 
