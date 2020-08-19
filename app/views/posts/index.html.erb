@@ -1,0 +1,9 @@
+<h1>All posts</h1>
+
+<% @posts.each do |post| %>
+<div class="post">
+  <h3><b>Title</b>: <%= post.title %></h3>
+  <p><b>Text</b>: <%= post.text %></p>
+  <%= link_to  "Show", post_path(post) %>
+</div>
+<% end %>
