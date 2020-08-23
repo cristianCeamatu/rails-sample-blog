@@ -1,0 +1,32 @@
+<h1>New post</h1>
+
+<% if @post.errors.any? %>
+  <h2>We have <%= pluralize(@post.errors.count, 'error') %> on the request</h2>
+
+  <ul>
+  <% @post.errors.full_messages.each do |error| %>
+    <li><%= error %></li>
+  <% end %> 
+  </ul> 
+<% end %>
+
+
+<%= form_with scope: :post, url: posts_path, local: true do |form| %>
+  <p>
+    <%= form.label :title %>
+    <br>
+    <%= form.text_field :title %>
+  </p>
+
+  <p>
+    <%= form.label :text %>
+    <br>
+    <%= form.text_area :text %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+
+<p><%= link_to  "Go back", posts_path %></p>
